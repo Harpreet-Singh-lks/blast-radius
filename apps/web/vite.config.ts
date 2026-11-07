@@ -5,6 +5,8 @@ import react from "@vitejs/plugin-react";
 const importerSrc = fileURLToPath(new URL("../../packages/importer/src", import.meta.url));
 
 export default defineConfig({
+  // GitHub Pages serves the site under /<repo>/; local dev and other hosts use /
+  base: process.env.VITE_BASE ?? "/",
   plugins: [react()],
   resolve: {
     alias: { "@importer": importerSrc },
