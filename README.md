@@ -16,13 +16,16 @@ Working:
   beacon, an authorised upgrade that makes withdrawals revert in A and B but not in C.
 - A command-line reader that queries Arkiv with the public RPC only.
 
-- A web bubble map (`apps/web`) that reads both datasets from Arkiv in the browser with the public RPC and no backend:
-  the mainnet mirror, and the controlled demo with a baseline/after snapshot switch and the recorded experiment results.
-  If Arkiv cannot be reached the app says so and shows no data.
+- A web app (`apps/web`) that reads both datasets from Arkiv in the browser with the public RPC and no backend: the
+  mainnet mirror, and the controlled demo with a baseline/after snapshot switch and the recorded experiment results.
+  If Arkiv cannot be reached the app says so and shows no data. Its main view is a **double bubble map**: pick two
+  positions (or two dependencies) and see what they share in the middle and what is unique to each around its side.
+  Two positions with an empty middle share no dependency. Each bubble opens the path and on-chain evidence behind it.
+  The original dependency graph is the second view.
 
 Not finished: no second publisher, no scheduler, and snapshot invalidation after a reorg is not implemented. The web
 app has been exercised in a browser by hand (including with the RPC blocked) but has no automated browser test, and
-only the data-model code has unit tests. The public endpoint is rate limited and the first load can be slow.
+only the data-model, comparison and layout code have unit tests. The public endpoint is rate limited and the first load can be slow.
 Details are in [`arkiv/data-quality.md`](arkiv/data-quality.md).
 
 ## Claims and limits
