@@ -5,6 +5,8 @@
 Blast Radius mirrors contract-dependency data into [Arkiv](https://docs.arkiv.network/) and shows which positions share
 a control point. It is built for the Arkiv **Mirror something Ethereum depends on** track at ETHGlobal Mumbai.
 
+**Live demo:** https://harpreet-singh-lks.github.io/blast-radius/ (static site, reads Arkiv directly in your browser)
+
 ## Status
 
 Working:
@@ -110,6 +112,12 @@ It reads snapshots published by `0x4bB1264FE54770d74aA0313ceBa6d9ed5c9C1417` fro
 public-tier key; do not use a writer key in the browser). `pnpm test` is not wired for the web app; run
 `node --test test/*.test.ts` there for the data-model tests.
 
+### Deploying the web app
+
+`scripts/deploy-pages.sh` builds `apps/web` for GitHub Pages, refuses to publish if a local key value appears in the
+bundle, and force-pushes the result to the `gh-pages` branch. The site then serves from
+`https://<user>.github.io/<repo>/`. The app only uses public settings, so no secret is needed to host it.
+
 ## Layout
 
 ```
@@ -118,6 +126,7 @@ contracts/            VaultV1, VaultV2Paused and the scenario tests (Foundry)
 packages/importer/    registry parser, adapters, manifests, Arkiv publisher, reader CLI, scenario runner
 packages/cli/         first Arkiv write/read smoke test
 arkiv/                schema, friction, reach, why-arkiv, data-quality
+scripts/              deploy-pages.sh (publishes the web build to GitHub Pages)
 THIRD_PARTY_NOTICES.md
 ```
 
