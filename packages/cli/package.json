@@ -1,0 +1,10 @@
+{
+  "name": "blast-radius-cli",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "@arkiv-network/sdk": "1.0.1",
+    "viem": "^2.57.16"
+  }
+}
