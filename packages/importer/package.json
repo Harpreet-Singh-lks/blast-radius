@@ -1,0 +1,22 @@
+{
+  "name": "blast-radius-importer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "import:registry": "node --env-file=../../.env src/import.ts",
+    "publish:snapshot": "node --env-file=../../.env src/publish.ts",
+    "query:dependents": "node --env-file-if-exists=../../.env src/query.ts",
+    "test": "node --test test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "demo:run": "node src/demo.ts"
+  },
+  "dependencies": {
+    "@arkiv-network/sdk": "1.0.1",
+    "viem": "2.57.16"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "5.8.3"
+  }
+}
